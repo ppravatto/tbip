@@ -1,8 +1,8 @@
 #include <iostream>
-#include <exception>
 #include <fstream>
 #include <string>
 #include "tbip.h"
+#include "tbip_exceptions.h"
 
 
 namespace tbip{
@@ -14,13 +14,15 @@ namespace tbip{
 
     RGB::RGB(int r_, int g_, int b_) : r(r_), g(g_), b(b_) {};
 
+    void RGB::set(int r_, int g_, int b_){
+        r=r_; g=g_; b=b_;
+    }
+
     RGB RGB::get_graylevel(){
         int avg = int((r+g+b)/3.);
         RGB grayscale(avg, avg, avg);
         return grayscale;
     }
-
-
 
     //Define the Image class
     //------------------------------------------------------------------------------

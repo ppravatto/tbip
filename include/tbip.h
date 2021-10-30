@@ -1,5 +1,5 @@
-#ifndef LIBPPM_H
-#define LIBPPM_H
+#ifndef TBIP_H
+#define TBIP_H
 
 #include <string>
 
@@ -7,38 +7,11 @@ namespace tbip{
 
     const int MAXVAL_PPM = 65536;
 
-    namespace _exceptions_{
-
-        class InitError: public std::exception {
-            virtual const char* what() const throw(){
-                return "operation performed on uninitilized object";
-            }
-        };
-
-        class ColorMaxError: public std::exception {
-            virtual const char* what() const throw(){
-                return "invalid color";
-            }
-        };
-
-        class PositionError: public std::exception {
-            virtual const char* what() const throw(){
-                return "invalid pixel coordinates";
-            }
-        };
-
-        class PpmMaxValError: public std::exception {
-            virtual const char* what() const throw(){
-                return "invalid maximum color value for .ppm file";
-            }
-        };
-
-    }
-
     struct RGB{
         int r, g, b;
         RGB();
         RGB(int r_, int g_, int b_);
+        void set(int r_, int g_, int b_);
         RGB get_graylevel();
     };
 

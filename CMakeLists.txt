@@ -5,8 +5,8 @@ project(tbip VERSION 1.0)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_library(tbip SHARED src/tbip.cpp)
-set_target_properties(tbip PROPERTIES PUBLIC_HEADER include/tbip.h)
+add_library(tbip SHARED src/tbip.cpp src/colormaps.cpp)
+set_target_properties(tbip PROPERTIES PUBLIC_HEADER include/tbip.h include/tbip_exceptions.h include/tbip_colormaps.h)
 set_target_properties(tbip PROPERTIES VERSION ${PROJECT_VERSION})
 target_include_directories(tbip PRIVATE include)
 target_include_directories(tbip PRIVATE src)
@@ -14,11 +14,17 @@ target_include_directories(tbip PRIVATE src)
 option(COMPILE_EXAMPLES "Set whether the examples are compiled" OFF)
 if(COMPILE_EXAMPLES)
     set(EXAMPLES_INSTALL_PATH "${CMAKE_INSTALL_PREFIX}/bin" CACHE PATH "Set example installation path")
+    
     add_executable(simple examples/simple.cpp)
     target_include_directories(simple PRIVATE include)
     target_link_libraries(simple PRIVATE tbip)
+
+    add_executable(function examples/function.cpp)
+    target_include_directories(function PRIVATE include)
+    target_link_libraries(function PRIVATE tbip)
+
     install(
-        TARGETS simple
+        TARGETS simple function
         RUNTIME DESTINATION "${EXAMPLES_INSTALL_PATH}"
         )
 endif()
