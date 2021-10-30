@@ -50,6 +50,7 @@ namespace tbip{
     Image::Image() : init(false), width(0), height(0), max(0) {};
 
     Image::Image(int width_, int height_, int max_) : init(true), width(width_), height(height_), max(max_) {
+        if(max <= 0 || max > MAXVAL_PPM) throw _exceptions_::PpmMaxValError();
         data = new RGB [width*height];
     }
 

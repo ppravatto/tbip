@@ -5,6 +5,8 @@
 
 namespace tbip{
 
+    const int MAXVAL_PPM = 65536;
+
     namespace _exceptions_{
 
         class InitError: public std::exception {
@@ -22,6 +24,12 @@ namespace tbip{
         class PositionError: public std::exception {
             virtual const char* what() const throw(){
                 return "invalid pixel coordinates";
+            }
+        };
+
+        class PpmMaxValError: public std::exception {
+            virtual const char* what() const throw(){
+                return "invalid maximum color value for .ppm file";
             }
         };
 
