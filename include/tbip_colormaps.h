@@ -25,6 +25,13 @@ namespace tbip{
                 RGB operator() (double value);
         };
 
+        class Viridis final : public Colormap{
+            public:
+                Viridis(int colors_, double max_, double min_, bool reverse_);
+                Viridis(int colors_, double max_, double min_);
+                RGB operator() (double value);
+        };
+
     }
 
 }
