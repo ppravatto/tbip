@@ -23,8 +23,12 @@ if(COMPILE_EXAMPLES)
     target_include_directories(function PRIVATE include)
     target_link_libraries(function PRIVATE tbip)
 
+    add_executable(colorbars examples/colorbars.cpp)
+    target_include_directories(colorbars PRIVATE include)
+    target_link_libraries(colorbars PRIVATE tbip)
+
     install(
-        TARGETS simple function
+        TARGETS simple function colorbars
         RUNTIME DESTINATION "${EXAMPLES_INSTALL_PATH}"
         )
 endif()

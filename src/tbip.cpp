@@ -40,8 +40,7 @@ namespace tbip{
     }
 
     void Image::check_color(RGB color){
-        if(color.r < 0 || color.r >= max || color.g < 0 || color.g >= max ||color.b < 0 || color.b >= max)
-            throw(_exceptions_::ColorMaxError());
+        if(color.r < 0 || color.r >= max || color.g < 0 || color.g >= max ||color.b < 0 || color.b >= max) throw(_exceptions_::ColorMaxError());
     }
 
     void Image::check_pixel(int x, int y){
@@ -81,10 +80,10 @@ namespace tbip{
         file << "P3" << std::endl;
         file << width << " " << height << std::endl;
         file << max << std::endl;
-        for(int x=0; x<height; x++){
-            for(int y=0; y<width; y++){
+        for(int y=0; y<height; y++){
+            for(int x=0; x<width; x++){
                 int idx = x + width*y;
-                if(y != 0) file << '\t';
+                if(x != 0) file << '\t';
                 file << data[idx].r << " " << data[idx].g << " " << data[idx].b;
             }
             file << std::endl;

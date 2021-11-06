@@ -25,10 +25,31 @@ namespace tbip{
                 RGB operator() (double value);
         };
 
+        class Inferno final : public Colormap{
+            public:
+                Inferno(int colors_, double max_, double min_, bool reverse_);
+                Inferno(int colors_, double max_, double min_);
+                RGB operator() (double value);
+        };
+
         class Viridis final : public Colormap{
             public:
                 Viridis(int colors_, double max_, double min_, bool reverse_);
                 Viridis(int colors_, double max_, double min_);
+                RGB operator() (double value);
+        };
+
+        class Plasma final : public Colormap{
+            public:
+                Plasma(int colors_, double max_, double min_, bool reverse_);
+                Plasma(int colors_, double max_, double min_);
+                RGB operator() (double value);
+        };
+
+        class Magma final : public Colormap{
+            public:
+                Magma(int colors_, double max_, double min_, bool reverse_);
+                Magma(int colors_, double max_, double min_);
                 RGB operator() (double value);
         };
 
