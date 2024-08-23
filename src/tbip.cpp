@@ -10,9 +10,9 @@ namespace tbip{
     //Define the RGB class to store and manipulate RGB values
     //------------------------------------------------------------------------------
 
-    RGB::RGB() : r(0), g(0), b(0) {};
+    RGB::RGB() : r(0), g(0), b(0) {}
 
-    RGB::RGB(int r_, int g_, int b_) : r(r_), g(g_), b(b_) {};
+    RGB::RGB(int r_, int g_, int b_) : r(r_), g(g_), b(b_) {}
 
     void RGB::set(int r_, int g_, int b_){
         r=r_; g=g_; b=b_;
@@ -48,7 +48,7 @@ namespace tbip{
             throw(_exceptions_::PositionError());
     }
 
-    Image::Image() : init(false), width(0), height(0), max(0) {};
+    Image::Image() : init(false), width(0), height(0), max(0) {}
 
     Image::Image(int width_, int height_, int max_) : init(true), width(width_), height(height_), max(max_) {
         if(max <= 0 || max > MAXVAL_PPM) throw _exceptions_::PpmMaxValError();
@@ -73,7 +73,7 @@ namespace tbip{
     Image& Image::operator= (const Image& source){
         copy(source);
         return *this;
-    };
+    }
 
     void Image::save(std::string filename){
         std::ofstream file(filename);

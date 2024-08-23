@@ -42,7 +42,7 @@ namespace tbip{
 
         static double compute_polynomial(double x, std::vector<double> coeff){
             double y = 0.;
-            for(int i=0; i<coeff.size(); i++){
+            for(int i=0; i<int(coeff.size()); i++){
                 y += coeff[i]*pow(x, i);
             }
             return y;
