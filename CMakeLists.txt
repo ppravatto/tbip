@@ -16,7 +16,7 @@ if(OpenMP_CXX_FOUND)
 endif()
 
 add_library(tbip SHARED src/tbip.cpp src/colormaps.cpp)
-set_target_properties(tbip PROPERTIES PUBLIC_HEADER include/tbip.h include/tbip_exceptions.h include/tbip_colormaps.h)
+set_target_properties(tbip PROPERTIES PUBLIC_HEADER "include/tbip.h;include/tbip_exceptions.h;include/tbip_colormaps.h")
 set_target_properties(tbip PROPERTIES VERSION ${PROJECT_VERSION})
 target_include_directories(tbip PRIVATE include)
 target_include_directories(tbip PRIVATE src)
